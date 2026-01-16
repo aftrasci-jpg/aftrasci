@@ -1,0 +1,7 @@
+{
+  "name": "AFTRAS CI - Logistics & Import-Export (2026)",
+  "description": "Professional logistics and international trade platform facilitating imports from China and India to Africa, featuring a product catalog and admin dashboard.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
