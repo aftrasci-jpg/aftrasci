@@ -24,3 +24,5 @@ View your app in AI Studio: https://ai.studio/apps/drive/1ioTPQHGNMpwwme4wsW86uV
 ## Deploy to GitHub Pages
 
 The app is automatically deployed to GitHub Pages via GitHub Actions when pushing to the master branch.
+
+Dernière mise à jour: $(date)
