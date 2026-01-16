@@ -9,7 +9,7 @@ export const COLORS = {
   light: '#F8FAFC', // Slate 50
 };
 
-export const LOGO_URL = '/assets/logos.png';
+export const LOGO_URL = '/logos.png';
 
 export const SERVICES: Service[] = [
   {
