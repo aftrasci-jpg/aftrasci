@@ -18,8 +18,8 @@ import { INITIAL_PRODUCTS, CATEGORIES } from '../constants';
 const PRODUCTS_COLLECTION = 'products';
 const CATEGORIES_COLLECTION = 'categories';
 
-const CLOUDINARY_CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
-const CLOUDINARY_UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
+const CLOUDINARY_CLOUD_NAME = 'dnpgvhq2t';
+const CLOUDINARY_UPLOAD_PRESET = 'aftras_preset';
 
 export const dbService = {
   getProducts: async (includeDefaults = false): Promise<Product[]> => {
