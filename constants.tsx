@@ -59,7 +59,13 @@ export const CATEGORIES: Category[] = [
   { id: 's_conf_1', parentId: 'p_mob_conf', name: 'Fauteuil de bureau', description: 'Ergonomie au travail', createdAt: Date.now(), updatedAt: Date.now() },
   { id: 's_conf_2', parentId: 'p_mob_conf', name: 'Fauteuil de massage', description: 'Détente et bien-être', createdAt: Date.now(), updatedAt: Date.now() },
   { id: 's_conf_3', parentId: 'p_mob_conf', name: 'Équipement de maison', description: 'Appareils domestiques', createdAt: Date.now(), updatedAt: Date.now() },
-  { id: 'p_mode', name: 'Accessoires et mode', description: 'Tendances et style', createdAt: Date.now(), updatedAt: Date.now() }
+  { id: 'p_mode', name: 'Accessoires et mode', description: 'Tendances et style', createdAt: Date.now(), updatedAt: Date.now() },
+  { id: 'p_agri', name: 'Produits agricoles', description: 'Produits du secteur agricole', createdAt: Date.now(), updatedAt: Date.now() },
+  { id: 's_agri_1', parentId: 'p_agri', name: 'Matières premières', description: 'Matières premières agricoles', createdAt: Date.now(), updatedAt: Date.now() },
+  { id: 's_agri_2', parentId: 'p_agri', name: 'Fruits et légumes', description: 'Frais et secs', createdAt: Date.now(), updatedAt: Date.now() },
+  { id: 's_agri_3', parentId: 'p_agri', name: 'Céréales', description: 'Céréales et grains', createdAt: Date.now(), updatedAt: Date.now() },
+  { id: 's_agri_4', parentId: 'p_agri', name: 'Produits transformés', description: 'Produits agricoles transformés', createdAt: Date.now(), updatedAt: Date.now() },
+  { id: 's_agri_5', parentId: 'p_agri', name: 'Produits d\'épices et aromatiques', description: 'Épices, herbes aromatiques et seasonings', createdAt: Date.now(), updatedAt: Date.now() }
 ];
 
 export const INITIAL_PRODUCTS: Product[] = [
