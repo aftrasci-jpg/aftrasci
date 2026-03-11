@@ -85,23 +85,26 @@ const App: React.FC = () => {
               <div className="max-w-6xl mx-auto space-y-12">
                 <div className="text-center space-y-4 animate-fadeIn">
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-100 text-[#F97316] rounded-full text-[10px] font-black uppercase tracking-widest shadow-sm">
-                    <Zap size={14} className="fill-current" /> Notre Engagement 2026
+                    <Zap size={14} className="fill-current" /> AFTRAS-CI depuis 2025
                   </div>
-                  <h1 className="text-4xl md:text-6xl font-heading font-black text-[#001E3C]">
-                    L'Excellence <span className="text-[#F97316]">Sans Frontières</span>
+                  <h1 className="text-4xl md:text-6xl font-heading font-black text-[#4CC5F2]">
+                    Votre Partenaire <span className="text-[#F97316]">International</span>
                   </h1>
+                  <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                    Spécialistes du négoce et de la logistique Afrique-Asie, nous facilitons vos importations avec une expertise terrain sur 3 continents.
+                  </p>
                 </div>
 
                 {/* IMAGE HERO */}
                 <div className="relative group animate-fadeInUp">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-[#1E40AF] to-[#F97316] rounded-[3rem] blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-[#4CC5F2] to-[#F97316] rounded-[3rem] blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
                   <div className="relative aspect-[21/9] w-full rounded-[3rem] overflow-hidden shadow-2xl border border-white">
                     <img 
                       src="https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&q=80&w=1600" 
                       alt="Vision Logistique AFTRAS CI" 
                       className="w-full h-full object-cover transition-transform duration-[20s] group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1E40AF]/90 via-transparent to-transparent flex items-end p-8 md:p-16">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#4CC5F2]/90 via-transparent to-transparent flex items-end p-8 md:p-16">
                       <div className="max-w-2xl space-y-4">
                         <h3 className="text-2xl md:text-4xl font-bold text-white font-heading">Connecter les continents.</h3>
                         <p className="text-slate-200 text-sm md:text-lg font-medium opacity-90">
@@ -117,50 +120,137 @@ const App: React.FC = () => {
                       <Globe2 size={24} />
                     </div>
                     <div>
-                      <p className="text-xl font-black text-[#1E40AF]">24/7</p>
-                      <p className="text-[10px] font-bold text-slate-400 uppercase">Suivi Global</p>
+                      <p className="text-xl font-black text-[#4CC5F2]">3 Continents</p>
+                      <p className="text-[10px] font-bold text-slate-400 uppercase">Présence Active</p>
                     </div>
                   </div>
                 </div>
               </div>
             </section>
 
-            {/* Mission & Vision Cards */}
+            {/* Informations Légales & Secteurs d'Activité */}
             <section className="max-w-7xl mx-auto px-4 py-24">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="group p-10 bg-[#1E40AF] rounded-[3rem] text-white space-y-6 hover:translate-y-[-8px] transition-all duration-500 shadow-xl shadow-blue-900/20">
-                  <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-[#F97316] group-hover:scale-110 transition-transform">
-                    <Target size={32} />
+              <div className="grid md:grid-cols-2 gap-12">
+                {/* Informations Légales */}
+                <div className="space-y-8">
+                  <div className="p-8 bg-[#4CC5F2] rounded-[3rem] text-white">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center">
+                        <Briefcase size={32} />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold">AFRICA TRADING SOLUTIONS CÔTE D'IVOIRE SARL</h3>
+                        <p className="text-blue-200 text-sm">Société de droit ivoirien</p>
+                      </div>
+                    </div>
+                    <div className="space-y-4 text-blue-100">
+                      <div className="flex justify-between border-b border-blue-300/30 pb-2">
+                        <span className="font-medium">RCCM:</span>
+                        <span>CI-ABJ-03-2025-B1206281</span>
+                      </div>
+                      <div className="flex justify-between border-b border-blue-300/30 pb-2">
+                        <span className="font-medium">Siège:</span>
+                        <span className="text-right">Abidjan - Yopougon Académie<br/>Cité SODEFOR, Appartement N°99</span>
+                      </div>
+                      <div className="flex justify-between border-b border-blue-300/30 pb-2">
+                        <span className="font-medium">Spécialités:</span>
+                        <span className="text-right">Négoce & Logistique<br/>Import-Export</span>
+                      </div>
+                    </div>
                   </div>
-                  <h2 className="text-3xl font-bold font-heading">Notre Mission</h2>
-                  <p className="text-slate-300 text-lg leading-relaxed">
-                    Démocratiser l'accès aux marchés mondiaux pour les entreprises africaines. Nous gérons la complexité logistique pour vous laisser vous concentrer sur votre croissance.
-                  </p>
-                  <ul className="space-y-3 pt-4">
-                    {['Sourcing sécurisé', 'Logistique transparente', 'Coûts optimisés'].map((item, i) => (
-                      <li key={i} className="flex items-center gap-3 text-sm font-bold opacity-80">
-                        <ChevronRight size={16} className="text-[#F97316]" /> {item}
-                      </li>
-                    ))}
-                  </ul>
+
+                  {/* Secteurs d'Activité */}
+                  <div className="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-xl">
+                    <h3 className="text-2xl font-bold text-[#4CC5F2] mb-6">Nos Domaines d'Expertise</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {[
+                        'Négoce de produits agricoles et manufacturés',
+                        'Fourniture de matériels médicaux, pédagogiques, hôteliers, mécaniques et agricoles',
+                        'Groupage et logistique de marchandises',
+                        'Commerce général international',
+                        'Représentation commerciale',
+                        'Opérations d\'importation et d\'exportation',
+                        'Intermédiation commerciale'
+                      ].map((domaine, i) => (
+                        <div key={i} className="flex items-center gap-3 p-3 bg-slate-50 rounded-xl">
+                          <div className="w-2 h-2 bg-[#F97316] rounded-full"></div>
+                          <span className="text-sm text-slate-600">{domaine}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
 
-                <div className="group p-10 bg-white rounded-[3rem] border border-slate-100 shadow-2xl space-y-6 hover:translate-y-[-8px] transition-all duration-500">
-                  <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center text-[#F97316] group-hover:scale-110 transition-transform">
-                    <Eye size={32} />
-                  </div>
-                  <h2 className="text-3xl font-bold font-heading text-[#1E40AF]">Notre Vision</h2>
-                  <p className="text-slate-500 text-lg leading-relaxed">
-                    Devenir le leader panafricain des solutions de "Trading Logistique", reconnu pour notre fiabilité sans faille et notre impact positif sur l'économie locale.
-                  </p>
-                   <div className="pt-6 grid grid-cols-2 gap-4">
-                    <div className="p-4 bg-slate-50 rounded-2xl text-center">
-                      <p className="text-2xl font-black text-[#1E40AF]">2030</p>
-                      <p className="text-[10px] font-bold text-slate-400 uppercase">Horizon Leader</p>
+                {/* Présence Internationale */}
+                <div className="space-y-8">
+                  <h3 className="text-3xl font-heading font-black text-[#4CC5F2] mb-8">Notre Présence Internationale</h3>
+                  
+                  {/* Système de Contact par Région */}
+                  <div className="space-y-6">
+                    <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                      <h4 className="font-bold text-[#4CC5F2] mb-4 flex items-center gap-3">
+                        <span className="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-black">CI</span>
+                        Côte d'Ivoire (Siège)
+                      </h4>
+                      <div className="space-y-3 text-sm">
+                        <p className="text-slate-600"><strong>Représentant:</strong> M. GNONSKAN Evariste Cyr Major Kahiba</p>
+                        <p className="text-slate-600"><strong>Fonction:</strong> Gérant</p>
+                        <p className="text-slate-600"><strong>Email:</strong> aftrasci@gmail.com</p>
+                        <div className="flex gap-3 mt-4">
+                          <a href="https://wa.me/2250141354860" target="_blank" rel="noopener noreferrer"
+                             className="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-white text-sm font-bold rounded-lg hover:bg-green-600 transition-colors">
+                            <MessageCircle size={16} /> WhatsApp Côte d'Ivoire
+                          </a>
+                          <a href="mailto:aftrasci@gmail.com"
+                             className="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 text-sm font-bold rounded-lg hover:bg-slate-200 transition-colors">
+                            <Mail size={16} /> Email
+                          </a>
+                        </div>
+                      </div>
                     </div>
-                    <div className="p-4 bg-slate-50 rounded-2xl text-center">
-                      <p className="text-2xl font-black text-[#F97316]">15+</p>
-                      <p className="text-[10px] font-bold text-slate-400 uppercase">Pays Cibles</p>
+
+                    <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                      <h4 className="font-bold text-[#4CC5F2] mb-4 flex items-center gap-3">
+                        <span className="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-sm font-black">IN</span>
+                        Asie (Inde)
+                      </h4>
+                      <div className="space-y-3 text-sm">
+                        <p className="text-slate-600"><strong>Représentant:</strong> M. ZOH Quevin</p>
+                        <p className="text-slate-600"><strong>Fonction:</strong> Directeur Général</p>
+                        <p className="text-slate-600"><strong>Résidence:</strong> New Delhi, Inde</p>
+                        <div className="flex gap-3 mt-4">
+                          <a href="https://wa.me/919625916929" target="_blank" rel="noopener noreferrer"
+                             className="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-white text-sm font-bold rounded-lg hover:bg-green-600 transition-colors">
+                            <MessageCircle size={16} /> WhatsApp Asie
+                          </a>
+                          <a href="mailto:aftrasolutions@gmail.com"
+                             className="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 text-sm font-bold rounded-lg hover:bg-slate-200 transition-colors">
+                            <Mail size={16} /> Email
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                      <h4 className="font-bold text-[#4CC5F2] mb-4 flex items-center gap-3">
+                        <span className="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-black">CH</span>
+                        Europe (Suisse)
+                      </h4>
+                      <div className="space-y-3 text-sm">
+                        <p className="text-slate-600"><strong>Représentante:</strong> Mme NGUEYEP Ndjionkou Rosine Merimée</p>
+                        <p className="text-slate-600"><strong>Fonction:</strong> Directrice Générale Adjointe</p>
+                        <p className="text-slate-600"><strong>Résidence:</strong> Lausanne, Suisse</p>
+                        <div className="flex gap-3 mt-4">
+                          <a href="https://wa.me/41779208318" target="_blank" rel="noopener noreferrer"
+                             className="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-white text-sm font-bold rounded-lg hover:bg-green-600 transition-colors">
+                            <MessageCircle size={16} /> WhatsApp Europe
+                          </a>
+                          <a href="mailto:aftrasolutions@gmail.com"
+                             className="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 text-sm font-bold rounded-lg hover:bg-slate-200 transition-colors">
+                            <Mail size={16} /> Email
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -172,7 +262,7 @@ const App: React.FC = () => {
               <div className="max-w-7xl mx-auto px-4">
                 <div className="text-center mb-16 space-y-4">
                   <h2 className="text-sm font-black text-[#F97316] uppercase tracking-[0.3em]">ADN AFTRAS</h2>
-                  <h3 className="text-4xl font-heading font-black text-[#1E40AF]">Les valeurs qui nous animent</h3>
+                  <h3 className="text-4xl font-heading font-black text-[#4CC5F2]">Les valeurs qui nous animent</h3>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -186,7 +276,7 @@ const App: React.FC = () => {
                       <div className={`w-14 h-14 rounded-2xl bg-orange-50 flex items-center justify-center mb-6 text-[#F97316] group-hover:bg-[#F97316] group-hover:text-white transition-all duration-300`}>
                         {value.icon}
                       </div>
-                      <h4 className="text-xl font-bold text-[#1E40AF] mb-4">{value.title}</h4>
+                      <h4 className="text-xl font-bold text-[#4CC5F2] mb-4">{value.title}</h4>
                       <p className="text-slate-500 leading-relaxed text-sm">{value.text}</p>
                     </div>
                   ))}
@@ -196,14 +286,23 @@ const App: React.FC = () => {
 
             {/* Call to Action */}
             <section className="pb-24 px-4 text-center">
-              <div className="max-w-2xl mx-auto space-y-8">
-                <h3 className="text-3xl font-heading font-bold text-[#1E40AF]">Prêt à collaborer avec nous ?</h3>
-                <button 
-                  onClick={() => handleNavigate('contact')}
-                  className="inline-flex items-center gap-3 px-10 py-5 bg-[#F97316] text-white font-black rounded-2xl shadow-2xl shadow-orange-800/30 hover:scale-105 active:scale-95 transition-all"
-                >
-                  Démarrer un projet <ChevronRight />
-                </button>
+              <div className="max-w-3xl mx-auto space-y-8">
+                <h3 className="text-3xl font-heading font-bold text-[#4CC5F2]">Prêt à collaborer avec nous ?</h3>
+                <p className="text-slate-600 text-lg">Contactez-nous directement selon votre région d'intérêt pour une réponse rapide et adaptée à vos besoins.</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-xl mx-auto">
+                  <a href="https://wa.me/2250141354860" target="_blank" rel="noopener noreferrer"
+                     className="inline-flex items-center justify-center gap-3 px-6 py-4 bg-green-500 text-white font-bold rounded-xl hover:bg-green-600 transition-all shadow-lg">
+                    <MessageCircle size={20} /> Côte d'Ivoire
+                  </a>
+                  <a href="https://wa.me/919625916929" target="_blank" rel="noopener noreferrer"
+                     className="inline-flex items-center justify-center gap-3 px-6 py-4 bg-green-500 text-white font-bold rounded-xl hover:bg-green-600 transition-all shadow-lg">
+                    <MessageCircle size={20} /> Asie
+                  </a>
+                  <a href="https://wa.me/41779208318" target="_blank" rel="noopener noreferrer"
+                     className="inline-flex items-center justify-center gap-3 px-6 py-4 bg-green-500 text-white font-bold rounded-xl hover:bg-green-600 transition-all shadow-lg">
+                    <MessageCircle size={20} /> Europe
+                  </a>
+                </div>
               </div>
             </section>
           </div>
@@ -212,7 +311,7 @@ const App: React.FC = () => {
         return (
           <div className="max-w-6xl mx-auto px-4 py-24 grid md:grid-cols-2 gap-16">
             <div className="space-y-8">
-              <h1 className="text-5xl font-heading font-black text-[#1E40AF]">Contactez-nous</h1>
+              <h1 className="text-5xl font-heading font-black text-[#4CC5F2]">Contactez-nous</h1>
               <p className="text-lg text-slate-600">Une question ? Un projet d'importation ? Notre équipe vous répond en moins de 24h.</p>
               
               <div className="space-y-6">
@@ -222,11 +321,11 @@ const App: React.FC = () => {
                       <MessageCircle size={32} />
                     </div>
                     <div>
-                      <h3 className="font-bold text-xl text-[#1E40AF]">WhatsApp Business</h3>
+                      <h3 className="font-bold text-xl text-[#4CC5F2]">WhatsApp Business</h3>
                       <p className="text-slate-500 text-sm">Réponse instantanée</p>
                     </div>
                   </div>
-                  <p className="text-2xl font-black text-[#1E40AF] mb-6">+225 0141354860</p>
+                  <p className="text-2xl font-black text-[#4CC5F2] mb-6">+225 0141354860</p>
                   <a 
                     href="https://wa.me/2250141354860" 
                     target="_blank" 
@@ -240,12 +339,12 @@ const App: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm">
                     <Mail className="text-[#F97316] mb-3" size={24} />
-                    <h3 className="font-bold text-[#1E40AF] mb-1">Email Direct</h3>
+                    <h3 className="font-bold text-[#4CC5F2] mb-1">Email Direct</h3>
                     <a href="mailto:aftrasci@gmail.com" className="text-slate-600 hover:text-[#F97316] transition-colors font-medium break-all text-sm">aftrasci@gmail.com</a>
                   </div>
                   <div className="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm">
                     <MapPin className="text-[#F97316] mb-3" size={24} />
-                    <h3 className="font-bold text-[#1E40AF] mb-1">Bureau</h3>
+                    <h3 className="font-bold text-[#4CC5F2] mb-1">Bureau</h3>
                     <p className="text-slate-600 font-medium text-sm">Abidjan, Côte d'Ivoire<br/>Yopougon Niangon Academie fin goudron cité Sodefor</p>
                   </div>
                 </div>
@@ -256,8 +355,8 @@ const App: React.FC = () => {
               className="bg-white p-8 rounded-3xl shadow-2xl border border-slate-100 space-y-6" 
               onSubmit={handleContactSubmit}
             >
-              <h2 className="text-2xl font-bold text-[#1E40AF] mb-4">Envoyez-nous un message</h2>
-              <div className="grid grid-cols-2 gap-6">
+              <h2 className="text-2xl font-bold text-[#4CC5F2] mb-4">Envoyez-nous un message</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-bold text-slate-700 mb-2">Nom Complet</label>
                   <input 

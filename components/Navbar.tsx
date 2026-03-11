@@ -28,7 +28,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
   return (
     <nav className="sticky top-0 z-50 w-full bg-white shadow-md">
       {/* Top Bar - Brand Blue Theme */}
-      <div className="hidden md:block bg-[#1E40AF] text-white text-xs py-2">
+      <div className="hidden md:block bg-[#4CC5F2] text-white text-xs py-2">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
           <div className="flex space-x-6">
             <a 
@@ -67,7 +67,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
               alt="Africa Trading Solutions" 
               className="h-14 w-auto object-contain transition-transform group-hover:scale-105"
             />
-            <span className="text-xl font-heading font-black tracking-tighter text-[#1E40AF] ml-2 block md:hidden lg:block">
+            <span className="text-xl font-heading font-black tracking-tighter text-[#4CC5F2] ml-2 block md:hidden lg:block">
               AFTRAS <span className="text-[#F97316]">CI</span>
             </span>
           </div>
@@ -97,13 +97,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
 
           {/* Mobile Toggle Button */}
           <div className="md:hidden flex items-center">
-            <button 
-              onClick={() => setIsOpen(!isOpen)} 
-              className="text-[#1E40AF] p-2 hover:bg-slate-100 rounded-lg transition-colors"
-              aria-label="Toggle Menu"
-            >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
+          <button 
+            onClick={() => setIsOpen(!isOpen)} 
+            className="text-[#4CC5F2] p-2 hover:bg-slate-100 rounded-lg transition-colors"
+            aria-label="Toggle Menu"
+          >
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ import { LOGO_URL } from '../constants';
 
 export const Footer: React.FC<{onNavigate: (page: PageType) => void}> = ({ onNavigate }) => {
   return (
-    <footer className="bg-[#1E40AF] text-blue-50 pt-16 pb-8">
+    <footer className="bg-[#4CC5F2] text-blue-50 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
         {/* Brand */}
         <div className="space-y-6">
