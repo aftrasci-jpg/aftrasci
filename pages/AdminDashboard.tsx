@@ -1,13 +1,14 @@
 
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { dbService } from '../services/dbService';
 import { Product, Category, PageType } from '../types';
 import { 
   Plus, Edit2, Trash2, Eye, EyeOff, LayoutDashboard, 
   Package, LogOut, X, ImageIcon,
   Loader2, Search, Zap, Star, ChevronRight,
-  Upload, ImagePlus, CheckCircle2, Layout
+  Upload, ImagePlus, CheckCircle2, Layout, AlertTriangle, ShieldCheck
 } from 'lucide-react';
+import { authService, useAdminAuth } from '../services/authService';
 
 interface AdminDashboardProps {
   onNavigate: (page: PageType) => void;

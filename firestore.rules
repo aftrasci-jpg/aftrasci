@@ -1,0 +1,196 @@
+// Firestore Security Rules - Enhanced Security Version
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Products collection - public read, admin write with enhanced security
+    match /products/{productId} {
+      // Allow public read access for browsing
+      allow read: if true;
+      
+      // Admin-only write operations with strict validation
+      allow create, update, delete: if request.auth != null && 
+                                   request.auth.token.admin == true &&
+                                   request.time < resource.data.createdAt + duration.value(1, 'h');
+      
+      // Enhanced validation for product creation
+      allow create: if request.auth != null && 
+                    request.auth.token.admin == true &&
+                    validateProductData(request.resource.data) &&
+                    request.resource.data.createdAt == request.time &&
+                    request.resource.data.updatedAt == request.time;
+      
+      // Enhanced validation for product updates
+      allow update: if request.auth != null && 
+                    request.auth.token.admin == true &&
+                    validateProductUpdate(request.resource.data, resource.data) &&
+                    request.resource.data.updatedAt == request.time;
+      
+      // Prevent deletion of featured products without special permission
+      allow delete: if request.auth != null && 
+                    request.auth.token.admin == true &&
+                    (!resource.data.featured || request.auth.token.superAdmin == true);
+    }
+    
+    // Categories collection - public read, admin write
+    match /categories/{categoryId} {
+      allow read: if true; // Public can browse categories
+      
+      // Admin-only write operations
+      allow create, update, delete: if request.auth != null && 
+                                   request.auth.token.admin == true;
+      
+      // Enhanced validation for category creation
+      allow create: if request.auth != null && 
+                    request.auth.token.admin == true &&
+                    validateCategoryData(request.resource.data) &&
+                    request.resource.data.createdAt == request.time &&
+                    request.resource.data.updatedAt == request.time;
+      
+      // Enhanced validation for category updates
+      allow update: if request.auth != null && 
+                    request.auth.token.admin == true &&
+                    validateCategoryUpdate(request.resource.data, resource.data) &&
+                    request.resource.data.updatedAt == request.time;
+    }
+    
+    // Admin collection - admin-only access
+    match /admins/{adminId} {
+      allow read, write: if request.auth != null && 
+                         request.auth.token.admin == true &&
+                         (request.auth.uid == adminId || request.auth.token.superAdmin == true);
+    }
+    
+    // Audit logs - admin-only access, append-only
+    match /auditLogs/{logId} {
+      allow read: if request.auth != null && request.auth.token.admin == true;
+      allow create: if request.auth != null && 
+                    request.auth.token.admin == true &&
+                    validateAuditLog(request.resource.data);
+      allow update, delete: if false; // Append-only logs
+    }
+  }
+}
+
+// Enhanced product data validation
+function validateProductData(data) {
+  return data.name is string &&
+         data.name.size() > 0 &&
+         data.name.size() <= 200 &&
+         data.name.matches('^[a-zA-Z0-9À-ÿ\\s\\-\\(\\)\\[\\]\\.,:;!?\'"\\/]+$') &&
+         data.category is string &&
+         data.category.size() > 0 &&
+         data.category.size() <= 100 &&
+         data.subcategory is string &&
+         data.subcategory.size() <= 100 &&
+         data.shortDescription is string &&
+         data.shortDescription.size() > 0 &&
+         data.shortDescription.size() <= 500 &&
+         data.detailedDescription is string &&
+         data.detailedDescription.size() > 0 &&
+         data.detailedDescription.size() <= 5000 &&
+         data.mainImage is string &&
+         data.mainImage.size() > 0 &&
+         data.mainImage.matches('^https://.*\\.(jpg|jpeg|png|webp|gif)$') &&
+         data.visible is bool &&
+         data.featured is bool &&
+         data.createdAt is timestamp &&
+         data.updatedAt is timestamp &&
+         data.createdAt == data.updatedAt &&
+         // Validate gallery images
+         (data.images is list ? 
+           data.images.size() <= 10 && 
+           (data.images.size() == 0 || data.images.filter((img) => img is string && img.matches('^https://.*\\.(jpg|jpeg|png|webp|gif)$')).size() == data.images.size()) : 
+           true) &&
+         // Prevent XSS in text fields
+         !data.name.matches('(?i)<script|javascript:|<iframe|<object|<embed') &&
+         !data.shortDescription.matches('(?i)<script|javascript:|<iframe|<object|<embed') &&
+         !data.detailedDescription.matches('(?i)<script|javascript:|<iframe|<object|<embed');
+}
+
+// Enhanced product update validation
+function validateProductUpdate(newData, oldData) {
+  return newData.name is string &&
+         newData.name.size() > 0 &&
+         newData.name.size() <= 200 &&
+         newData.name.matches('^[a-zA-Z0-9À-ÿ\\s\\-\\(\\)\\[\\]\\.,:;!?\'"\\/]+$') &&
+         newData.category is string &&
+         newData.category.size() > 0 &&
+         newData.subcategory is string &&
+         newData.shortDescription is string &&
+         newData.shortDescription.size() > 0 &&
+         newData.detailedDescription is string &&
+         newData.detailedDescription.size() > 0 &&
+         newData.mainImage is string &&
+         newData.mainImage.size() > 0 &&
+         newData.visible is bool &&
+         newData.featured is bool &&
+         newData.updatedAt is timestamp &&
+         newData.updatedAt > oldData.updatedAt &&
+         // Prevent modification of creation timestamp
+         newData.createdAt == oldData.createdAt &&
+         // Validate image URLs
+         newData.mainImage.matches('^https://.*\\.(jpg|jpeg|png|webp|gif)$') &&
+         // Prevent XSS in updated fields
+         !newData.name.matches('(?i)<script|javascript:|<iframe|<object|<embed') &&
+         !newData.shortDescription.matches('(?i)<script|javascript:|<iframe|<object|<embed') &&
+         !newData.detailedDescription.matches('(?i)<script|javascript:|<iframe|<object|<embed');
+}
+
+// Enhanced category data validation
+function validateCategoryData(data) {
+  return data.name is string &&
+         data.name.size() > 0 &&
+         data.name.size() <= 100 &&
+         data.name.matches('^[a-zA-ZÀ-ÿ\\s\\-\\(\\)\\[\\]\\.,:;!?\'"\\/]+$') &&
+         data.description is string &&
+         data.description.size() > 0 &&
+         data.description.size() <= 500 &&
+         data.description.matches('^[a-zA-ZÀ-ÿ\\s\\-\\(\\)\\[\\]\\.,:;!?\'"\\/]+$') &&
+         data.createdAt is timestamp &&
+         data.updatedAt is timestamp &&
+         data.createdAt == data.updatedAt &&
+         // Validate optional parentId format
+         (data.parentId is string ? 
+           (data.parentId.size() > 0 && data.parentId.matches('^[a-zA-Z0-9]{20,}$')) : 
+           true) &&
+         // Prevent XSS in text fields
+         !data.name.matches('(?i)<script|javascript:|<iframe|<object|<embed') &&
+         !data.description.matches('(?i)<script|javascript:|<iframe|<object|<embed');
+}
+
+// Enhanced category update validation
+function validateCategoryUpdate(newData, oldData) {
+  return newData.name is string &&
+         newData.name.size() > 0 &&
+         newData.name.size() <= 100 &&
+         newData.name.matches('^[a-zA-ZÀ-ÿ\\s\\-\\(\\)\\[\\]\\.,:;!?\'"\\/]+$') &&
+         newData.description is string &&
+         newData.description.size() > 0 &&
+         newData.description.size() <= 500 &&
+         newData.description.matches('^[a-zA-ZÀ-ÿ\\s\\-\\(\\)\\[\\]\\.,:;!?\'"\\/]+$') &&
+         newData.updatedAt is timestamp &&
+         newData.updatedAt > oldData.updatedAt &&
+         // Prevent modification of creation timestamp
+         newData.createdAt == oldData.createdAt &&
+         // Validate optional parentId format
+         (newData.parentId is string ? 
+           (newData.parentId.size() > 0 && newData.parentId.matches('^[a-zA-Z0-9]{20,}$')) : 
+           true) &&
+         // Prevent XSS in updated fields
+         !newData.name.matches('(?i)<script|javascript:|<iframe|<object|<embed') &&
+         !newData.description.matches('(?i)<script|javascript:|<iframe|<object|<embed');
+}
+
+// Audit log validation
+function validateAuditLog(data) {
+  return data.action is string &&
+         data.action.size() > 0 &&
+         data.action.size() <= 100 &&
+         data.userId is string &&
+         data.timestamp is timestamp &&
+         data.timestamp == request.time &&
+         data.details is map &&
+         data.details.size() <= 1000;
+}
