@@ -29,16 +29,32 @@ if (!CLOUDINARY_CLOUD_NAME || !CLOUDINARY_UPLOAD_PRESET) {
 export const dbService = {
   getProducts: async (includeDefaults = false): Promise<Product[]> => {
     try {
+      console.log('🔍 Tentative de connexion à Firestore...');
       const q = query(collection(db, PRODUCTS_COLLECTION), orderBy('createdAt', 'desc'));
+      console.log('📋 Requête Firestore préparée:', PRODUCTS_COLLECTION);
+      
       const snapshot = await getDocs(q);
+      console.log('📊 Snapshot reçu:', {
+        empty: snapshot.empty,
+        size: snapshot.size,
+        docs: snapshot.docs.map(d => ({ id: d.id, data: d.data() }))
+      });
       
       if (snapshot.empty) {
+        console.log('⚠️ Aucun produit trouvé dans Firestore, utilisation des données par défaut');
         return includeDefaults ? INITIAL_PRODUCTS : [];
       }
       
-      return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Product));
+      const products = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Product));
+      console.log('✅ Produits chargés depuis Firestore:', products.length);
+      return products;
     } catch (error) {
-      console.error("Erreur Firestore:", error);
+      console.error("❌ Erreur Firestore:", error);
+      console.error("📋 Détails de l'erreur:", {
+        message: error.message,
+        code: error.code,
+        stack: error.stack
+      });
       return includeDefaults ? INITIAL_PRODUCTS : [];
     }
   },
