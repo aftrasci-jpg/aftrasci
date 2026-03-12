@@ -9,6 +9,9 @@ service cloud.firestore {
       // Lecture publique seulement pour produits visibles
       allow read: if resource.data.visible == true ||
                    (request.auth != null && request.auth.token.admin == true);
+      
+      // Autoriser les listes avec orderBy
+      allow list: if true;
 
       // Création produit (admin uniquement)
       allow create: if request.auth != null
