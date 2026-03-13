@@ -6,7 +6,7 @@ import { LOGO_URL } from '../constants';
 
 export const Footer: React.FC<{onNavigate: (page: PageType) => void}> = ({ onNavigate }) => {
   return (
-    <footer className="bg-[#4CC5F2] text-blue-50 pt-16 pb-8">
+<footer className="bg-[#1E40AF] text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
         {/* Brand */}
         <div className="space-y-6">
@@ -14,7 +14,7 @@ export const Footer: React.FC<{onNavigate: (page: PageType) => void}> = ({ onNav
             <img src={LOGO_URL} alt="Africa Trading Solutions" className="h-12 w-auto brightness-0 invert" />
           </div>
           <p className="text-sm leading-relaxed opacity-90">
-            Africa Trading Solutions Côte d'Ivoire : Votre pont commercial de confiance entre l'Asie et l'Afrique. Nous simplifions vos importations avec expertise et transparence.
+            Africa Trading Solutions Côte d'Ivoire : Votre pont commercial de confiance entre l'Asie, l'Europe et l'Afrique. Nous simplifions vos importations avec expertise et transparence.
           </p>
           <div className="flex space-x-4">
             <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-orange-600 transition-colors text-white"><Facebook size={18} /></a>

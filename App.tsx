@@ -188,9 +188,9 @@ const App: React.FC = () => {
                   {/* Système de Contact par Région */}
                   <div className="space-y-6">
                     <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200">
-                      <h4 className="font-bold text-[#4CC5F2] mb-4 flex items-center gap-3">
+<h4 className="font-bold text-[#4CC5F2] mb-4 flex items-center gap-3">
                         <span className="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-black">CI</span>
-                        Côte d'Ivoire (Siège)
+                        Afrique (Côte d'Ivoire)
                       </h4>
                       <div className="space-y-3 text-sm">
                         <p className="text-slate-600"><strong>Représentant:</strong> M. GNONSKAN Evariste Cyr Major Kahiba</p>
@@ -290,9 +290,9 @@ const App: React.FC = () => {
                 <h3 className="text-3xl font-heading font-bold text-[#4CC5F2]">Prêt à collaborer avec nous ?</h3>
                 <p className="text-slate-600 text-lg">Contactez-nous directement selon votre région d'intérêt pour une réponse rapide et adaptée à vos besoins.</p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-xl mx-auto">
-                  <a href="https://wa.me/2250141354860" target="_blank" rel="noopener noreferrer"
+<a href="https://wa.me/2250141354860" target="_blank" rel="noopener noreferrer"
                      className="inline-flex items-center justify-center gap-3 px-6 py-4 bg-green-500 text-white font-bold rounded-xl hover:bg-green-600 transition-all shadow-lg">
-                    <MessageCircle size={20} /> Côte d'Ivoire
+                    <MessageCircle size={20} /> Afrique (Côte d'Ivoire)
                   </a>
                   <a href="https://wa.me/919625916929" target="_blank" rel="noopener noreferrer"
                      className="inline-flex items-center justify-center gap-3 px-6 py-4 bg-green-500 text-white font-bold rounded-xl hover:bg-green-600 transition-all shadow-lg">
@@ -307,6 +307,28 @@ const App: React.FC = () => {
             </section>
           </div>
         );
+case 'contact':
+        return (
+          <div className="max-w-6xl mx-auto px-4 py-24 grid md:grid-cols-2 gap-16">
+            <div className="space-y-8">
+              <h1 className="text-5xl font-heading font-black text-[#4CC5F2]">Contactez-nous</h1>
+              <p className="text-lg text-slate-600">Une question ? Un projet d'importation ? Notre équipe vous répond en moins de 24h.</p>
+            </div>
+          </div>
+        );
+      case 'about':
+        return <Home onNavigate={handleNavigate} />;
+      case 'contact':
+        return (
+          <div className="max-w-6xl mx-auto px-4 py-24 grid md:grid-cols-2 gap-16">
+            <div className="space-y-8">
+              <h1 className="text-5xl font-heading font-black text-[#4CC5F2]">Contactez-nous</h1>
+              <p className="text-lg text-slate-600">Une question ? Un projet d'importation ? Notre équipe vous répond en moins de 24h.</p>
+            </div>
+          </div>
+        );
+      case 'about':
+        return <About onNavigate={handleNavigate} />;
       case 'contact':
         return (
           <div className="max-w-6xl mx-auto px-4 py-24 grid md:grid-cols-2 gap-16">

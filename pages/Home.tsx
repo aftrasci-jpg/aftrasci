@@ -26,7 +26,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
     {
       id: 'h1',
       image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1600',
-      title: 'Logistique Chine - Inde - Afrique',
+      title: 'Logistique Asie-Europe- Afrique',
       subtitle: 'Facilitez vos importations avec AFTRAS CI. Transport sécurisé, dédouanement fluide et sourcing de qualité.',
       ctaLabel: 'Demander un devis WhatsApp',
       onCtaClick: () => onNavigate('contact')
