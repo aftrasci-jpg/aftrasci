@@ -32,7 +32,7 @@ export const SERVICES: Service[] = [
     id: 's3',
     title: 'Sourcing & Inspection',
     shortDesc: 'Trouvez les meilleurs fournisseurs en Asie avec AFTRAS CI.',
-    longDesc: 'Nos agents sur place en Chine et en Inde identifient, vérifient et auditent vos futurs partenaires commerciaux. Nous effectuons des contrôles qualité rigoureux avant chaque expédition pour éviter les mauvaises surprises.',
+longDesc: 'Nos agents sur place en Afrique, en Europe et en Asie identifient, vérifient et auditent vos futurs partenaires commerciaux. Nous effectuons des contrôles qualité rigoureux avant chaque expédition pour éviter les mauvaises surprises.',
     image: 'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&q=80&w=800',
     icon: 'search'
   },

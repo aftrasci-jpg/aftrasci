@@ -31,7 +31,7 @@ export const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
     <div className="pb-24">
       {/* Page Header / Slider */}
       <section className="relative">
-        <Slider items={serviceSliderItems} height="h-[600px]" interval={10000} />
+<Slider items={serviceSliderItems} height="h-[600px] md:h-[700px] lg:h-[800px]" interval={10000} />
       </section>
 
       {/* Intro Text */}
@@ -42,7 +42,7 @@ export const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
         </h1>
         <p className="text-lg text-slate-600 leading-relaxed">
           AFTRAS CI n'est pas seulement un transporteur. Nous sommes votre partenaire stratégique en Côte d'Ivoire, 
-          facilitant chaque étape de votre chaîne d'approvisionnement depuis les hubs industriels d'Asie jusqu'à vous.
+          facilitant chaque étape de votre chaîne d'approvisionnement depuis les hubs industriels d'Asie et d'Europe jusqu'à vous.
         </p>
       </section>
 

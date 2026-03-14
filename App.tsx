@@ -91,7 +91,7 @@ const App: React.FC = () => {
                     Votre Partenaire <span className="text-[#F97316]">International</span>
                   </h1>
                   <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                    Spécialistes du négoce et de la logistique Afrique-Asie, nous facilitons vos importations avec une expertise terrain sur 3 continents.
+Spécialiste du négoce et de la logistique Afrique-Asie-Europe, nous facilitons vos importations avec une expertise terrain sur 3 continents.
                   </p>
                 </div>
 
@@ -409,7 +409,7 @@ case 'contact':
                   onChange={(e) => setContactForm({ ...contactForm, subject: e.target.value })}
                 >
                   <option>Demande de devis</option>
-                  <option>Sourcing Chine/Inde</option>
+                  <option>Sourcing Europe/Asie</option>
                   <option>Suivi de colis</option>
                   <option>Autre</option>
                 </select>

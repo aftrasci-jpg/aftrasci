@@ -52,7 +52,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
 
   return (
     <div className="space-y-24 pb-24">
-      <Slider items={heroSlides} height="h-[80vh] md:h-[90vh]" interval={10000} />
+<Slider items={heroSlides} height="h-[80vh] md:h-[90vh] lg:h-[100vh]" interval={10000} />
 
       <section className="max-w-7xl mx-auto px-4 -mt-32 relative z-20">
         <div className="bg-white rounded-[2.5rem] shadow-2xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-3 gap-8 border border-slate-100">
@@ -99,7 +99,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             Tous les services <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
-        <Slider items={serviceSlides} height="h-[450px] md:h-[550px]" interval={10000} />
+<Slider items={serviceSlides} height="h-[450px] md:h-[550px] lg:h-[600px]" interval={10000} />
       </section>
 
       <section className="max-w-7xl mx-auto px-4">
@@ -109,18 +109,18 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
         </div>
 
         {!isLoading && featuredProducts.length > 0 ? (
-          <Slider 
-            items={featuredProducts.map(p => ({
-              id: p.id,
-              image: p.mainImage,
-              title: p.name,
-              subtitle: p.shortDescription,
-              ctaLabel: 'Voir les détails techniques',
-              onCtaClick: () => onNavigate('product-detail', p.id)
-            }))} 
-            height="h-[500px]" 
-            interval={10000}
-          />
+<Slider 
+  items={featuredProducts.map(p => ({
+    id: p.id,
+    image: p.mainImage,
+    title: p.name,
+    subtitle: p.shortDescription,
+    ctaLabel: 'Voir les détails techniques',
+    onCtaClick: () => onNavigate('product-detail', p.id)
+  }))} 
+  height="h-[500px] md:h-[600px] lg:h-[700px]" 
+  interval={10000}
+/>
         ) : (
           <div className="h-64 flex items-center justify-center bg-slate-50 rounded-3xl border-2 border-dashed border-slate-200 text-slate-400 font-bold uppercase text-xs tracking-widest">
             {isLoading ? "Chargement des pépites AFTRAS..." : "Aucun produit vedette à afficher"}
